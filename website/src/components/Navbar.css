@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  color: #fff;
+  z-index: 10;
+}
+
+.navbar__logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.navbar__links-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar__links-list a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.navbar__links-list a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar__links-list a:hover::after,
+.navbar__links-list a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar__cta {
+  padding: 0.75rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  color: #111;
+  background: #f4e3c1;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar__cta:hover,
+.navbar__cta:focus-visible {
+  background: #fff;
+  color: #000;
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.navbar__toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__toggle--open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar__toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle--open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem 7vw;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    position: absolute;
+    top: 100%;
+    right: 5vw;
+    flex-direction: column;
+    align-items: stretch;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem;
+    border-radius: 0 0 0.6rem 0.6rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform-origin: top right;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .navbar__links--open {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar__links-list {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .navbar__cta {
+    text-align: center;
+    width: 100%;
+  }
+}
+
