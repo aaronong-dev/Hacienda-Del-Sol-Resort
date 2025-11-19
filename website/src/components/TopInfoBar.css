@@ -1,0 +1,131 @@
+:root {
+  --top-info-bar-height: 3rem;
+}
+
+.top-info-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--top-info-bar-height);
+  padding: 0 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.55) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 11;
+}
+
+.top-info-bar__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 0.9rem;
+}
+
+.top-info-bar__contact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.top-info-bar__address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.top-info-bar__contact-link {
+  color: #f4e3c1;
+  letter-spacing: 0.15rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.top-info-bar__contact-link:hover,
+.top-info-bar__contact-link:focus-visible {
+  color: #fff;
+}
+
+.top-info-bar__social {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.top-info-bar__social-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.top-info-bar__social-link {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.top-info-bar__social-link:hover,
+.top-info-bar__social-link:focus-visible {
+  background: #f4e3c1;
+  color: #111;
+  border-color: #f4e3c1;
+}
+
+@media (max-width: 992px) {
+  .top-info-bar {
+    padding: 0 5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --top-info-bar-height: 2.6rem;
+  }
+
+  .top-info-bar {
+    position: fixed;
+    font-size: 0.65rem;
+    letter-spacing: 0.18rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .top-info-bar__social-links {
+    gap: 0.35rem;
+  }
+
+  .top-info-bar__eyebrow {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .top-info-bar {
+    justify-content: center;
+  }
+
+  .top-info-bar__address {
+    display: none;
+  }
+
+  .top-info-bar__social {
+    display: none;
+  }
+}

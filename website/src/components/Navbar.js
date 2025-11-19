@@ -3,13 +3,12 @@ import './Navbar.css';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'Accommodations', href: '#accommodations' },
   { label: 'Weddings & Events', href: '#weddings-events' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'About', href: '#about' },
+  { label: 'About Us', href: '#about' },
 ];
 
-function Navbar() {
+function Navbar({ onBookNowClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen((prev) => !prev);
@@ -17,7 +16,14 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="navbar__logo">Hacienda Del Sol</div>
+      <div className="navbar__logo">
+        <img src="/HDSLogo.png" alt="Hacienda Del Sol Logo" className="navbar__logo-image" />
+        <div className="navbar__logo-text">
+          Hacienda Del Sol
+          <span className="navbar__logo-subtitle">Resort & Venue</span>
+          <span className="navbar__logo-est">Est. 2025</span>
+        </div>
+      </div>
       <button
         className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
         onClick={handleToggle}
@@ -36,13 +42,18 @@ function Navbar() {
             </a>
           ))}
         </div>
-        <a
+        <button
           className="navbar__cta"
-          href="#book-now"
-          onClick={handleLinkClick}
+          type="button"
+          onClick={() => {
+            if (typeof onBookNowClick === 'function') {
+              onBookNowClick();
+            }
+            handleLinkClick();
+          }}
         >
           Book Now
-        </a>
+        </button>
       </nav>
     </header>
   );
