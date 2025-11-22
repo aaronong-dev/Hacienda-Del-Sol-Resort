@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Weddings & Events', href: '#weddings-events' },
+  { label: 'Home', href: '/' },
+  { label: 'Weddings & Events', href: '/weddings-events' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'About Us', href: '#about' },
 ];
@@ -16,14 +17,14 @@ function Navbar({ onBookNowClick }) {
 
   return (
     <header className="navbar">
-      <div className="navbar__logo">
+      <Link to="/" className="navbar__logo">
         <img src="/HDSLogo.png" alt="Hacienda Del Sol Logo" className="navbar__logo-image" />
         <div className="navbar__logo-text">
           Hacienda Del Sol
           <span className="navbar__logo-subtitle">Resort & Venue</span>
           <span className="navbar__logo-est">Est. 2025</span>
         </div>
-      </div>
+      </Link>
       <button
         className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
         onClick={handleToggle}
@@ -37,9 +38,15 @@ function Navbar({ onBookNowClick }) {
       <nav className={`navbar__links ${isOpen ? 'navbar__links--open' : ''}`}>
         <div className="navbar__links-list">
           {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} onClick={handleLinkClick}>
-              {label}
-            </a>
+            href.startsWith('#') ? (
+              <a key={label} href={href} onClick={handleLinkClick}>
+                {label}
+              </a>
+            ) : (
+              <Link key={label} to={href} onClick={handleLinkClick}>
+                {label}
+              </Link>
+            )
           ))}
         </div>
         <button

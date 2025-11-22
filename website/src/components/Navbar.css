@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
   color: #fff;
   z-index: 10;
 }
@@ -19,6 +19,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .navbar__logo-image {
@@ -74,6 +76,7 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 0.25rem;
+  font-family: 'Playfair Display', serif;
 }
 
 .navbar__links-list a::after {
@@ -105,7 +108,7 @@
   letter-spacing: 0.08rem;
   transition: background 0.2s ease, color 0.2s ease;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
   text-transform: uppercase;
   text-decoration: none;
