@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import Navbar from '../components/Navbar';
 import TopInfoBar from '../components/TopInfoBar';
@@ -10,6 +11,7 @@ import PropertyImage2 from '../assets/property-intro/2.png';
 import PropertyImage3 from '../assets/property-intro/3.png';
 import PropertyImage4 from '../assets/property-intro/4.png';
 import GrandOpeningImage from '../assets/grandopening/grandOpening.jpg';
+import PerfectForImage from '../assets/grandopening/PerfectFor.png';
 
 const PROPERTY_IMAGES = [
   { src: PropertyImage1, alt: 'Hacienda Del Sol Resort', title: 'Luxury Accommodations', description: 'Experience unparalleled comfort in our elegantly designed rooms and suites.' },
@@ -19,6 +21,7 @@ const PROPERTY_IMAGES = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const carouselRef = useRef(null);
@@ -27,6 +30,22 @@ function Home() {
 
   const handleOpenBooking = () => setIsBookingOpen(true);
   const handleCloseBooking = () => setIsBookingOpen(false);
+  const handleViewGallery = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    navigate('/gallery');
+  };
+  const handleViewWeddingsEvents = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    navigate('/weddings-events');
+  };
 
   const handlePrevious = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -155,13 +174,6 @@ function Home() {
             <p className="property-intro-subtitle">Explore the elegance and beauty of Hacienda Del Sol Resort</p>
           </div>
           <div className="gallery-wrapper">
-            <button
-              className="gallery-arrow gallery-arrow--left"
-              onClick={handlePrevious}
-              aria-label="Previous image"
-            >
-              ‹
-            </button>
             <div 
               className="gallery-carousel"
               ref={carouselRef}
@@ -186,12 +198,24 @@ function Home() {
                     <h3 className="gallery-card-title">{image.title}</h3>
                     <p className="gallery-card-description">{image.description}</p>
                     {index === currentImageIndex && (
-                      <button className="gallery-card-button">VIEW PROPERTY</button>
+                      <button className="gallery-card-button" onClick={handleViewGallery}>VIEW GALLERY</button>
                     )}
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="gallery-pagination">
+            <button
+              className="gallery-arrow gallery-arrow--left"
+              onClick={handlePrevious}
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            <span className="gallery-pagination-text">
+              {currentImageIndex + 1} / {PROPERTY_IMAGES.length}
+            </span>
             <button
               className="gallery-arrow gallery-arrow--right"
               onClick={handleNext}
@@ -200,11 +224,6 @@ function Home() {
               ›
             </button>
           </div>
-          <div className="gallery-pagination">
-            <span className="gallery-pagination-text">
-              {currentImageIndex + 1} / {PROPERTY_IMAGES.length}
-            </span>
-          </div>
         </div>
       </section>
       <section className="weddings-events-section">
@@ -212,6 +231,23 @@ function Home() {
           <div className="weddings-events-header">
             <h2 className="weddings-events-title">Perfect for Weddings & Events</h2>
             <p className="weddings-events-subtitle">Create unforgettable memories in our stunning venue</p>
+          </div>
+          <div className="weddings-events-image-wrapper">
+            <img 
+              src={PerfectForImage} 
+              alt="Perfect for Weddings & Events" 
+              className="weddings-events-image"
+            />
+          </div>
+          <div className="weddings-events-button-wrapper">
+            <button className="weddings-events-button" onClick={handleViewWeddingsEvents}>
+              <div className="weddings-events-button-main">
+                DISCOVER WEDDINGS & EVENTS →
+              </div>
+              <div className="weddings-events-button-subtitle">
+                Explore our stunning venues and create unforgettable memories.
+              </div>
+            </button>
           </div>
         </div>
       </section>

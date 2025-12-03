@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import './WeddingsEvents.css';
+import './Gallery.css';
 import Navbar from '../components/Navbar';
 import TopInfoBar from '../components/TopInfoBar';
 import BookingSidebar from '../components/BookingSidebar';
 import Footer from '../components/Footer';
-import Wedding1 from '../assets/outdoor/Wedding1.jpg';
-import Wedding2 from '../assets/outdoor/Wedding2.jpg';
-import Wedding3 from '../assets/outdoor/Wedding3.jpg';
+import PropertyImage1 from '../assets/property-intro/1.png';
+import PropertyImage2 from '../assets/property-intro/2.png';
+import PropertyImage3 from '../assets/property-intro/3.png';
+import PropertyImage4 from '../assets/property-intro/4.png';
 
-const WEDDING_IMAGES = [
-  { src: Wedding1, alt: 'Wedding at Hacienda Del Sol', title: 'Elegant Wedding Celebration' },
-  { src: Wedding2, alt: 'Wedding at Hacienda Del Sol', title: 'Beautiful Outdoor Ceremony' },
-  { src: Wedding3, alt: 'Wedding at Hacienda Del Sol', title: 'Memorable Wedding Reception' },
+const GALLERY_IMAGES = [
+  { src: PropertyImage1, alt: 'Hacienda Del Sol Resort', title: 'Luxury Accommodations' },
+  { src: PropertyImage2, alt: 'Hacienda Del Sol Resort', title: 'Scenic Views' },
+  { src: PropertyImage3, alt: 'Hacienda Del Sol Resort', title: 'Tranquil Gardens' },
+  { src: PropertyImage4, alt: 'Hacienda Del Sol Resort', title: 'Resort Amenities' },
 ];
 
-function WeddingsEvents() {
+function Gallery() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -23,56 +25,56 @@ function WeddingsEvents() {
 
   const handlePrevious = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? WEDDING_IMAGES.length - 1 : prevIndex - 1
+      prevIndex === 0 ? GALLERY_IMAGES.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === WEDDING_IMAGES.length - 1 ? 0 : prevIndex + 1
+      prevIndex === GALLERY_IMAGES.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   return (
-    <div className="weddings-events" id="weddings-events">
+    <div className="gallery-page" id="gallery">
       <TopInfoBar />
       <Navbar onBookNowClick={handleOpenBooking} />
-      <section className="hero">
-        <div className="hero-image-wrapper">
+      <section className="gallery-hero">
+        <div className="gallery-hero-image-wrapper">
           <img
-            src={WEDDING_IMAGES[currentImageIndex].src}
-            alt={WEDDING_IMAGES[currentImageIndex].alt}
-            className={`hero-image ${currentImageIndex === 2 ? 'hero-image--bottom' : ''}`}
+            src={GALLERY_IMAGES[currentImageIndex].src}
+            alt={GALLERY_IMAGES[currentImageIndex].alt}
+            className="gallery-hero-image"
           />
-          <div className="hero-overlay"></div>
+          <div className="gallery-hero-overlay"></div>
           <button
-            className="hero-arrow hero-arrow--left"
+            className="gallery-hero-arrow gallery-hero-arrow--left"
             onClick={handlePrevious}
             aria-label="Previous image"
           >
             ‹
           </button>
           <button
-            className="hero-arrow hero-arrow--right"
+            className="gallery-hero-arrow gallery-hero-arrow--right"
             onClick={handleNext}
             aria-label="Next image"
           >
             ›
           </button>
-          <div className="hero-content">
-            <h1 className="hero-title">Weddings & Events</h1>
-            <p className="hero-subtitle">{WEDDING_IMAGES[currentImageIndex].title}</p>
-            <div className="hero-pagination">
-              {currentImageIndex + 1} / {WEDDING_IMAGES.length}
+          <div className="gallery-hero-content">
+            <h1 className="gallery-hero-title">Property Gallery</h1>
+            <p className="gallery-hero-subtitle">{GALLERY_IMAGES[currentImageIndex].title}</p>
+            <div className="gallery-hero-pagination">
+              {currentImageIndex + 1} / {GALLERY_IMAGES.length}
             </div>
           </div>
         </div>
       </section>
       <section className="gallery-grid-section">
         <div className="gallery-grid-container">
-          <h2 className="gallery-grid-title">Explore Our Events</h2>
+          <h2 className="gallery-grid-title">Explore Our Property</h2>
           <div className="gallery-grid">
-            {WEDDING_IMAGES.map((image, index) => (
+            {GALLERY_IMAGES.map((image, index) => (
               <div
                 key={index}
                 className={`gallery-grid-item ${index === currentImageIndex ? 'gallery-grid-item--active' : ''}`}
@@ -97,5 +99,5 @@ function WeddingsEvents() {
   );
 }
 
-export default WeddingsEvents;
+export default Gallery;
 
