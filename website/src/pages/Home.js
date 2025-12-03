@@ -47,6 +47,22 @@ function Home() {
     navigate('/weddings-events');
   };
 
+  const handleRequestTour = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    navigate('/weddings-events');
+    // Scroll to the quote form section after navigation
+    setTimeout(() => {
+      const quoteSection = document.querySelector('.quote-form-section');
+      if (quoteSection) {
+        quoteSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
   const handlePrevious = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? PROPERTY_IMAGES.length - 1 : prevIndex - 1
@@ -156,7 +172,7 @@ function Home() {
             <p className="cta-text">
               Book your stay today and discover the perfect blend of elegance, comfort, and exceptional service.
             </p>
-            <button className="cta-button" onClick={handleOpenBooking}>
+            <button className="cta-button" onClick={handleRequestTour}>
               Request Tour
             </button>
           </div>
@@ -229,8 +245,7 @@ function Home() {
       <section className="weddings-events-section">
         <div className="weddings-events-container">
           <div className="weddings-events-header">
-            <h2 className="weddings-events-title">Perfect for Weddings & Events</h2>
-            <p className="weddings-events-subtitle">Create unforgettable memories in our stunning venue</p>
+            <h2 className="weddings-events-title">Weddings & Events</h2>
           </div>
           <div className="weddings-events-image-wrapper">
             <img 
@@ -245,7 +260,7 @@ function Home() {
                 DISCOVER WEDDINGS & EVENTS →
               </div>
               <div className="weddings-events-button-subtitle">
-                Explore our stunning venues and create unforgettable memories.
+                Explore our stunning venue and create unforgettable memories.
               </div>
             </button>
           </div>
@@ -255,7 +270,6 @@ function Home() {
         <div className="history-container">
           <div className="history-header">
             <h2 className="history-title">Our Grand Opening</h2>
-            <p className="history-subtitle">A new beginning in June 2025</p>
           </div>
           <div className="history-image-wrapper">
             <img 
@@ -266,14 +280,16 @@ function Home() {
           </div>
           <div className="history-content">
             <p className="history-text">
-              Hacienda Del Sol Resort opened its doors in June 2025, bringing a new standard of luxury 
-              and refinement to the region. Every detail of the property has been carefully designed 
-              with elegance and timeless traditions of hospitality in mind.
+            Hacienda Del Sol Resort opened its doors in June 2025, introducing a new standard of luxury, hospitality, 
+            and celebration to the Rio Grande Valley. Thoughtfully designed with elegance and timeless tradition, 
+            our property offers more than a place to stay. It is a destination for unforgettable moments.
             </p>
             <p className="history-text">
-              We are excited to welcome our first guests and create memorable experiences that will 
-              define our legacy. Each corner of our property tells a story, and we invite you to 
-              become part of our journey from the very beginning.
+            Whether you are here for a relaxing getaway or celebrating a wedding or special event, every detail has 
+            been crafted to elevate your experience. 
+            Since our opening, we’ve been honored 
+            to host countless stays and celebrations. Hacienda Del Sol 
+            has become a destination where comfort, joy, and tradition come together for every guest.
             </p>
           </div>
         </div>

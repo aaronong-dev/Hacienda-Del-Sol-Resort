@@ -4,6 +4,7 @@ import './Navbar.css';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'Accomodations', href: '/accomodations' },
   { label: 'Weddings & Events', href: '/weddings-events' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'About Us', href: '#about' },
