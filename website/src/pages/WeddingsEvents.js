@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './WeddingsEvents.css';
 import Navbar from '../components/Navbar';
 import TopInfoBar from '../components/TopInfoBar';
@@ -17,6 +17,22 @@ const WEDDING_IMAGES = [
 function WeddingsEvents() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Preload all images to prevent black box flash during scrolling
+  useEffect(() => {
+    const imagePromises = WEDDING_IMAGES.map((image) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = image.src;
+      });
+    });
+
+    Promise.all(imagePromises).catch((error) => {
+      console.error('Error preloading images:', error);
+    });
+  }, []);
 
   const handleOpenBooking = () => setIsBookingOpen(true);
   const handleCloseBooking = () => setIsBookingOpen(false);
@@ -43,6 +59,7 @@ function WeddingsEvents() {
             src={WEDDING_IMAGES[currentImageIndex].src}
             alt={WEDDING_IMAGES[currentImageIndex].alt}
             className={`hero-image ${currentImageIndex === 2 ? 'hero-image--bottom' : ''}`}
+            loading="eager"
           />
           <div className="hero-overlay"></div>
           <button
