@@ -5,14 +5,16 @@
   top: var(--top-info-bar-height, 0px);
   left: 0;
   width: 100%;
-  padding: 1rem 7vw;
+  padding: 0.5rem 7vw;
+  padding-bottom: 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
-  color: #fff;
+  justify-content: center;
+  gap: 8rem;
+  background: #ffffff;
+  color: #111;
   z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .navbar__logo {
@@ -44,7 +46,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.15rem;
   text-transform: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.7);
   margin-top: 0.15rem;
 }
 
@@ -53,7 +55,7 @@
   font-size: 0.6rem;
   letter-spacing: 0.1rem;
   text-transform: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.6);
   margin-top: 0.1rem;
 }
 
@@ -100,10 +102,10 @@
 
 .navbar__cta {
   padding: 0.75rem 1.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: #111;
-  background: #f4e3c1;
+  border-radius: 15px;
+  border: 1px solid #111;
+  color: #fff;
+  background: #ff6600;
   font-weight: 600;
   letter-spacing: 0.08rem;
   transition: background 0.2s ease, color 0.2s ease;
@@ -119,8 +121,8 @@
 
 .navbar__cta:hover,
 .navbar__cta:focus-visible {
-  background: #fff;
-  color: #000;
+  background: #e55a00;
+  color: #fff;
 }
 
 .navbar__toggle {
@@ -130,7 +132,7 @@
   gap: 0.3rem;
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 999px;
   background: transparent;
   color: inherit;
@@ -162,7 +164,7 @@
   .navbar {
     position: fixed;
     top: var(--top-info-bar-height, 0px);
-    background: rgba(0, 0, 0, 0.9);
+    background: #ffffff;
     padding: 1.5rem 7vw;
   }
 
@@ -176,10 +178,10 @@
     right: 5vw;
     flex-direction: column;
     align-items: stretch;
-    background: rgba(0, 0, 0, 0.9);
+    background: #ffffff;
     padding: 1.5rem;
     border-radius: 0 0 0.6rem 0.6rem;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     transform-origin: top right;
     transform: scaleY(0);
     opacity: 0;

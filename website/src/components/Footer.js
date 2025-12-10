@@ -17,11 +17,7 @@ function Footer() {
       <div className="footer__container">
         <div className="footer__logo-section">
           <Link to="/" className="footer__logo">
-            <img src="/HDSLogo.png" alt="Hacienda Del Sol Logo" className="footer__logo-image" />
-            <div className="footer__logo-text">
-              Hacienda Del Sol
-              <span className="footer__logo-subtitle">Resort & Venue</span>
-            </div>
+            <img src="/NewLogo.png" alt="Hacienda Del Sol Logo" className="footer__logo-image" />
           </Link>
         </div>
 

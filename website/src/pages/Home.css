@@ -33,9 +33,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(0, 0, 0, 0) 30%
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(255, 255, 255, 0) 20%
   );
   pointer-events: none;
 }
@@ -49,6 +49,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
 }
 
 .cta-image {
@@ -60,7 +61,7 @@
   height: 90%;
   object-fit: cover;
   object-position: center;
-  border: 1px solid #696969;
+  border: 1px solid #000;
   z-index: 1;
 }
 
@@ -70,11 +71,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    360deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
+  background: transparent;
   z-index: 2;
 }
 
@@ -167,9 +164,9 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 1) 7%,
-    rgba(0, 0, 0, 0.5) 20%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(255, 255, 255, 1) 7%,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 255, 255, 0.3) 95%
   );
   z-index: 2;
 }

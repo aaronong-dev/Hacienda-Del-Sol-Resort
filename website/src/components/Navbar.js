@@ -19,12 +19,7 @@ function Navbar({ onBookNowClick }) {
   return (
     <header className="navbar">
       <Link to="/" className="navbar__logo">
-        <img src="/HDSLogo.png" alt="Hacienda Del Sol Logo" className="navbar__logo-image" />
-        <div className="navbar__logo-text">
-          Hacienda Del Sol
-          <span className="navbar__logo-subtitle">Resort & Venue</span>
-          <span className="navbar__logo-est">Est. 2025</span>
-        </div>
+        <img src="/NewLogo.png" alt="Hacienda Del Sol Logo" className="navbar__logo-image" />
       </Link>
       <button
         className={`navbar__toggle ${isOpen ? 'navbar__toggle--open' : ''}`}
