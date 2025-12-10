@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: 'Accomodations', href: '/accomodations' },
   { label: 'Weddings & Events', href: '/weddings-events' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About Us', href: '/about-us' },
 ];
 
 function Navbar({ onBookNowClick }) {
