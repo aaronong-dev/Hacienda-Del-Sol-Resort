@@ -70,7 +70,7 @@ function Footer() {
               </svg>
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/haciendadelsolresort/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="footer__social-link"
@@ -81,7 +81,7 @@ function Footer() {
               </svg>
             </a>
             <a 
-              href="https://youtube.com" 
+              href="https://www.youtube.com/@Haciendadelsolresort" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="footer__social-link"

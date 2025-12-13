@@ -5,7 +5,7 @@ import './TopInfoBar.css';
 const SOCIAL_LINKS = [
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/haciendadelsol/',
+    href: 'https://www.instagram.com/haciendadelsolresort/',
     icon: FaInstagram,
   },
   {
@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'YouTube',
-    href: 'https://www.youtube.com/@haciendadelsol',
+    href: 'https://www.youtube.com/@Haciendadelsolresort',
     icon: FaYoutube,
   },
 ];

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AboutUs.css';
 import Navbar from '../components/Navbar';
 import TopInfoBar from '../components/TopInfoBar';
+import BookingSidebar from '../components/BookingSidebar';
 import PropertyImage1 from '../assets/property-intro/1.png';
 import PropertyImage2 from '../assets/property-intro/2.png';
 
 function AboutUs() {
-  const handleOpenBooking = () => {
-    // Booking functionality can be added here later
-  };
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  const handleOpenBooking = () => setIsBookingOpen(true);
+  const handleCloseBooking = () => setIsBookingOpen(false);
 
   return (
     <div className="about-us-page" id="about-us">
@@ -78,6 +80,7 @@ function AboutUs() {
           </div>
         </div>
       </section>
+      <BookingSidebar isOpen={isBookingOpen} onClose={handleCloseBooking} />
     </div>
   );
 }
